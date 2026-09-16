@@ -15,7 +15,8 @@ const LIVE_PAYOUTS = [
 const ROLES_DATA = [
     {
         id: 'delivery',
-        title: 'Bike & 2-Wheeler Delivery',
+        title: '2-Wheeler Delivery',
+        categoryTag: 'Bike & Scooter',
         subtitle: 'Pronto, Zepto, Zomato, Swiggy, Blinkit',
         baseDaily: 1150,
         dailyRange: '₹900 - ₹1,650',
@@ -27,19 +28,21 @@ const ROLES_DATA = [
     },
     {
         id: 'cargo',
-        title: '3-Wheeler & Cargo Logistics',
+        title: '3W & Cargo Logistics',
+        categoryTag: 'Mini-Truck / Auto',
         subtitle: 'Porter, Pronto Cargo, Tata Ace Logistics',
         baseDaily: 1850,
         dailyRange: '₹1,500 - ₹2,600',
         weeklyRange: '₹10,500 - ₹18,200',
         monthlyRange: '₹45,000 - ₹78,000',
         payoutFrequency: 'Daily Direct to Kotak',
-        badge: 'Highest Earning',
+        badge: 'Top Earning',
         icon: '🚚'
     },
     {
         id: 'store',
-        title: 'Quick Commerce & Dark Store',
+        title: 'Dark Store Associate',
+        categoryTag: 'Quick Commerce Hub',
         subtitle: 'Zepto Hub, Blinkit Darkstore, Instamart',
         baseDaily: 1050,
         dailyRange: '₹850 - ₹1,400',
@@ -51,7 +54,8 @@ const ROLES_DATA = [
     },
     {
         id: 'warehouse',
-        title: 'Warehouse & Fulfillment Ops',
+        title: 'Warehouse Operations',
+        categoryTag: 'Fulfillment Hub',
         subtitle: 'Amazon, Flipkart, E-commerce Hubs',
         baseDaily: 1250,
         dailyRange: '₹1,000 - ₹1,750',
@@ -65,7 +69,6 @@ const ROLES_DATA = [
 
 export default function RollingPayoutTicker({ onApplyClick, variant = 'full' }) {
     const [selectedRole, setSelectedRole] = useState(ROLES_DATA[0]);
-    const [dailyOrders, setDailyOrders] = useState(18);
     const [tickerIndex, setTickerIndex] = useState(0);
 
     // Rotate ticker items periodically
@@ -83,7 +86,7 @@ export default function RollingPayoutTicker({ onApplyClick, variant = 'full' }) 
             onApplyClick(selectedRole);
             return;
         }
-        const el = document.getElementById('apply-funnel') || document.getElementById('apply');
+        const el = document.getElementById('job-listings') || document.getElementById('apply');
         if (el) {
             el.scrollIntoView({ behavior: 'smooth' });
         } else {
@@ -133,10 +136,10 @@ export default function RollingPayoutTicker({ onApplyClick, variant = 'full' }) 
                             <span>DropyHub Dynamic Rolling Payroll Engine</span>
                         </div>
                         <h2 className="payroll-title">
-                            Work Today. Get Paid Rolling Payouts <span className="gradient-text">Directly into Kotak.</span>
+                            Work Today. Get Rolling Payouts <span className="gradient-text">Directly Into Kotak.</span>
                         </h2>
                         <p className="payroll-desc">
-                            No 30-day waiting. DropyHub partners enjoy daily rolling earnings & weekly settlements credited directly into a zero-balance Kotak Salary Account.
+                            No 30-day waiting. DropyHub company partners enjoy daily rolling earnings & weekly settlements credited directly into a zero-balance Kotak Salary Account.
                         </p>
                     </div>
 
@@ -151,10 +154,11 @@ export default function RollingPayoutTicker({ onApplyClick, variant = 'full' }) 
                             >
                                 <div className="role-pill-icon">{role.icon}</div>
                                 <div className="role-pill-content">
-                                    <div className="role-pill-title-row">
-                                        <span className="role-pill-title">{role.title}</span>
+                                    <div className="role-pill-top-row">
+                                        <span className="role-pill-category">{role.categoryTag}</span>
                                         {role.badge && <span className="role-pill-badge">{role.badge}</span>}
                                     </div>
+                                    <strong className="role-pill-title">{role.title}</strong>
                                     <span className="role-pill-sub">{role.subtitle}</span>
                                 </div>
                             </button>
@@ -230,14 +234,14 @@ export default function RollingPayoutTicker({ onApplyClick, variant = 'full' }) 
                         </div>
                     </div>
 
-                    {/* CTA Box */}
+                    {/* CTA Bar */}
                     <div className="rolling-cta-bar">
                         <div className="rolling-cta-info">
                             <strong>Ready to start earning with {selectedRole.title}?</strong>
-                            <span>Apply in 2 minutes, complete Kotak verification, and start your rolling payouts.</span>
+                            <span>Apply for verified roles in 60 seconds and link your Kotak salary account.</span>
                         </div>
                         <button type="button" className="btn-primary rolling-cta-btn" onClick={handleApply}>
-                            <span>Apply Now & Unlock Payouts</span>
+                            <span>View Openings & Apply</span>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
