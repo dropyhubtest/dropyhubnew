@@ -1,0 +1,460 @@
+/* ========================================================
+   DropyHub Rolling Payout & Payroll Visualizer Styles
+   Fintech Glassmorphism & High-Contrast Typography
+   ======================================================== */
+
+.rolling-payroll-section {
+    position: relative;
+    padding: 0 0 60px 0;
+    width: 100%;
+}
+
+.rolling-payroll-section.rolling-payroll--compact {
+    padding: 0 0 30px 0;
+}
+
+/* ---------------- Ticker Bar ---------------- */
+.rolling-ticker-bar {
+    background: rgba(13, 16, 37, 0.92);
+    border-top: 1px solid rgba(233, 30, 140, 0.25);
+    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 12px 0;
+    margin-bottom: 36px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .rolling-ticker-bar {
+    background: rgba(255, 255, 255, 0.96);
+    border-top: 1px solid rgba(194, 24, 91, 0.2);
+    border-bottom: 1px solid rgba(2, 136, 209, 0.2);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.rolling-ticker-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.rolling-ticker-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(233, 30, 140, 0.15);
+    border: 1px solid rgba(233, 30, 140, 0.4);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: var(--pink-light, #FF4DA6);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background: #00E676;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00E676;
+    animation: pulse-live 1.8s infinite;
+}
+
+@keyframes pulse-live {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 14px #00E676; }
+    100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.rolling-ticker-stream {
+    flex: 1;
+    min-width: 280px;
+    overflow: hidden;
+}
+
+.rolling-ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    animation: fadeInTicker 0.4s ease forwards;
+    flex-wrap: wrap;
+}
+
+@keyframes fadeInTicker {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.payout-name {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.payout-partner {
+    color: var(--cyan, #00E5FF);
+    font-weight: 600;
+}
+
+.payout-tag {
+    color: var(--text-muted);
+}
+
+.payout-amount {
+    font-weight: 800;
+    color: #00E676;
+    background: rgba(0, 230, 118, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 230, 118, 0.25);
+}
+
+.payout-bank {
+    color: #FFB300;
+    font-weight: 600;
+}
+
+.payout-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.rolling-ticker-trust {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--cyan, #00E5FF);
+    background: var(--cyan-dim, rgba(0, 229, 255, 0.1));
+    padding: 6px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+/* ---------------- Calculator Card ---------------- */
+.rolling-calculator-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 36px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+}
+
+.rolling-calculator-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-brand);
+}
+
+.rolling-calculator-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 32px auto;
+}
+
+.payroll-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(233, 30, 140, 0.12);
+    border: 1px solid rgba(233, 30, 140, 0.3);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--pink-light);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.payroll-title {
+    font-size: clamp(22px, 3.5vw, 34px);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.payroll-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ---------------- Roles Grid ---------------- */
+.rolling-roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.role-pill-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+    width: 100%;
+}
+
+.role-pill-btn:hover {
+    border-color: rgba(233, 30, 140, 0.4);
+    transform: translateY(-2px);
+    background: var(--surface-2);
+}
+
+.role-pill-btn.active {
+    background: var(--surface-2);
+    border-color: var(--pink);
+    box-shadow: 0 0 20px rgba(233, 30, 140, 0.25);
+}
+
+.role-pill-icon {
+    font-size: 26px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.role-pill-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.role-pill-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin-bottom: 3px;
+}
+
+.role-pill-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.role-pill-badge {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: rgba(0, 229, 255, 0.15);
+    color: var(--cyan);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.role-pill-sub {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ---------------- Display Grid (Stats) ---------------- */
+.rolling-display-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.payout-stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+}
+
+.payout-stat-card.primary-stat {
+    background: linear-gradient(145deg, var(--surface) 0%, rgba(233, 30, 140, 0.08) 100%);
+    border-color: rgba(233, 30, 140, 0.35);
+    box-shadow: 0 8px 32px rgba(233, 30, 140, 0.12);
+}
+
+.stat-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.stat-pill {
+    font-size: 10.5px;
+    font-weight: 700;
+    background: rgba(0, 230, 118, 0.15);
+    color: #00E676;
+    border: 1px solid rgba(0, 230, 118, 0.3);
+    padding: 2px 8px;
+    border-radius: 100px;
+}
+
+.stat-icon {
+    font-size: 16px;
+}
+
+.stat-value {
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.stat-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+}
+
+.stat-footer strong {
+    color: #00E676;
+}
+
+/* ---------------- Perks Strip ---------------- */
+.payroll-perks-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 20px;
+    background: var(--surface-2);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    margin-bottom: 28px;
+}
+
+.perk-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.perk-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.perk-text strong {
+    display: block;
+    font-size: 13.5px;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.perk-text span {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* ---------------- CTA Bar ---------------- */
+.rolling-cta-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 24px;
+    background: linear-gradient(135deg, rgba(233, 30, 140, 0.12) 0%, rgba(21, 101, 192, 0.15) 100%);
+    border: 1px solid rgba(233, 30, 140, 0.3);
+    border-radius: 14px;
+    flex-wrap: wrap;
+}
+
+.rolling-cta-info strong {
+    display: block;
+    font-size: 15px;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.rolling-cta-info span {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.rolling-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 992px) {
+    .rolling-display-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rolling-calculator-card {
+        padding: 24px 18px;
+    }
+}
+
+@media (max-width: 640px) {
+    .rolling-ticker-bar__inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rolling-ticker-trust {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .rolling-cta-bar {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .rolling-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

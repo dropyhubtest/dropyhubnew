@@ -1,0 +1,355 @@
+/* ========================================================
+   Kotak Onboarding Card Styles
+   High-Trust Co-Branded Fintech Component
+   ======================================================== */
+
+.kotak-gate-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 32px;
+    background: var(--bg-card);
+    border: 1px solid rgba(233, 30, 140, 0.35);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    animation: fadeInKotak 0.4s ease forwards;
+}
+
+@keyframes fadeInKotak {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.kotak-gate-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ED1C24 0%, #003366 50%, #00E5FF 100%);
+}
+
+.kotak-gate-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+}
+
+.kotak-brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+}
+
+.kotak-logo-text {
+    font-weight: 900;
+    color: #ED1C24;
+    font-size: 16px;
+    letter-spacing: -0.5px;
+    text-transform: lowercase;
+}
+
+.kotak-811-tag {
+    font-weight: 800;
+    color: #FFFFFF;
+    background: #ED1C24;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+[data-theme="light"] .kotak-811-tag {
+    color: #FFFFFF;
+}
+
+.kotak-divider {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.kotak-partner-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.mandatory-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 82, 82, 0.15);
+    border: 1px solid rgba(255, 82, 82, 0.4);
+    color: #FF5252;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pulse-icon {
+    font-size: 8px;
+    animation: pulseRed 1.5s infinite;
+}
+
+@keyframes pulseRed {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
+}
+
+.kotak-gate-title {
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+.kotak-gate-subtitle {
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+/* ---------------- Applicant Sub-ID Strip ---------------- */
+.applicant-id-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--surface-2);
+    border: 1px dashed rgba(0, 229, 255, 0.4);
+    border-radius: 12px;
+    padding: 12px 18px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.applicant-id-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.applicant-id-code {
+    font-family: 'Space Grotesk', monospace, sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--cyan);
+    letter-spacing: 1px;
+    background: rgba(0, 229, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.applicant-id-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: #00E676;
+    background: rgba(0, 230, 118, 0.12);
+    padding: 3px 8px;
+    border-radius: 100px;
+}
+
+/* ---------------- Benefits Grid ---------------- */
+.kotak-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.kotak-benefit-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    transition: var(--transition);
+}
+
+.kotak-benefit-box:hover {
+    border-color: rgba(233, 30, 140, 0.3);
+    background: var(--surface-2);
+}
+
+.benefit-badge-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.kotak-benefit-box strong {
+    display: block;
+    font-size: 13.5px;
+    color: var(--text-primary);
+    margin-bottom: 3px;
+}
+
+.kotak-benefit-box span {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* ---------------- 3 Steps Track ---------------- */
+.kotak-steps-track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px;
+    background: var(--surface-2);
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    margin-bottom: 28px;
+}
+
+.step-track-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.step-track-num {
+    width: 30px;
+    height: 30px;
+    background: var(--pink);
+    color: #FFF;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.step-track-info strong {
+    display: block;
+    font-size: 12.5px;
+    color: var(--text-primary);
+}
+
+.step-track-info span {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.step-track-arrow {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+/* ---------------- Actions Area ---------------- */
+.kotak-actions-area {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.kotak-primary-btn {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #ED1C24 0%, #D81B60 100%);
+    box-shadow: 0 8px 30px rgba(237, 28, 36, 0.35);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.kotak-primary-btn:hover {
+    box-shadow: 0 12px 36px rgba(237, 28, 36, 0.5);
+    transform: translateY(-2px);
+}
+
+.kotak-confirmation-prompt {
+    background: rgba(0, 229, 255, 0.08);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 12px;
+    padding: 18px;
+    animation: fadeInKotak 0.3s ease;
+}
+
+.confirmation-msg {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.kotak-confirm-btn {
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 13.5px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.kotak-confirm-btn:hover {
+    background: var(--cyan);
+    color: #060812;
+}
+
+/* ---------------- Footer Disclaimer ---------------- */
+.kotak-disclaimer-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+    .kotak-gate-card {
+        padding: 22px 16px;
+    }
+
+    .kotak-steps-track {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .step-track-arrow {
+        display: none;
+    }
+}

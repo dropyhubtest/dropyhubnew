@@ -1,0 +1,277 @@
+/* ──────────────────────────────────────────
+   SRH Partnership — Premium Edition
+────────────────────────────────────────── */
+
+.srh {
+    background: var(--bg-section);
+}
+
+.srh__inner {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 56px;
+    align-items: center;
+    padding: 60px;
+    border: 1px solid rgba(255, 140, 0, 0.22);
+    border-radius: 28px;
+    background: linear-gradient(145deg,
+        rgba(12, 6, 2, 0.98) 0%,
+        rgba(18, 10, 3, 0.95) 100%);
+}
+
+.srh__inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 75% 50%, rgba(255, 107, 0, 0.1) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 80%, rgba(233, 30, 140, 0.07) 0%, transparent 50%);
+    pointer-events: none;
+    border-radius: 28px;
+}
+
+/* ─── Ambient Orbs ─── */
+.srh__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    opacity: 0.3;
+    animation: orb-drift 20s ease-in-out infinite;
+}
+
+.srh__orb--left {
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, #FF6B00 0%, transparent 70%);
+    top: -120px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.srh__orb--right {
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, #E91E8C 0%, transparent 70%);
+    bottom: -100px;
+    right: 80px;
+    animation-delay: -6s;
+    animation-direction: reverse;
+}
+
+/* ─── Badge Row ─── */
+.srh__badge-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.srh__live-dot {
+    width: 10px;
+    height: 10px;
+    background: #FF6B00;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2), 0 0 12px #FF6B00;
+    animation: pulse-badge 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.srh__live-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #FFB74D;
+    padding: 5px 14px;
+    background: rgba(255, 140, 0, 0.08);
+    border: 1px solid rgba(255, 140, 0, 0.2);
+    border-radius: 100px;
+}
+
+/* ─── Headline ─── */
+.srh__headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4.2vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.12;
+    margin-bottom: 22px;
+    letter-spacing: -0.04em;
+}
+
+/* ─── Description ─── */
+.srh__desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.78;
+    max-width: 500px;
+    margin-bottom: 32px;
+}
+
+.srh__desc strong {
+    color: #FFB74D;
+    font-weight: 700;
+}
+
+/* ─── Perks ─── */
+.srh__perks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 36px;
+}
+
+.srh__perk {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    transition: all 0.25s ease;
+}
+
+.srh__perk:hover {
+    background: rgba(255, 107, 0, 0.06);
+    border-color: rgba(255, 107, 0, 0.2);
+    color: var(--text-primary);
+    transform: translateX(4px);
+}
+
+.srh__perk svg {
+    color: #FF6B00;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.srh__perk:hover svg { transform: scale(1.15); }
+
+/* ─── Visual column ─── */
+.srh__visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 26px;
+    position: relative;
+    z-index: 1;
+}
+
+.srh__logo-ring {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.srh__logo-inner {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.srh__logo-inner:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 30px rgba(255, 107, 0, 0.3);
+    border-color: rgba(255, 107, 0, 0.4);
+}
+
+.srh__dh-logo {
+    width: 80px;
+    object-fit: contain;
+}
+
+.srh__ring {
+    position: absolute;
+    border-radius: 50%;
+    animation: spin-slow linear infinite;
+}
+
+.srh__ring--1 {
+    width: 158px;
+    height: 158px;
+    border: 1.5px dashed rgba(255, 100, 0, 0.35);
+    animation-duration: 9s;
+}
+
+.srh__ring--2 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid rgba(233, 30, 140, 0.22);
+    animation-duration: 16s;
+    animation-direction: reverse;
+}
+
+.srh__partnership-tag {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFB74D;
+    line-height: 1.5;
+}
+
+.srh__partnership-tag span {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.srh__ipl-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #FF6B00, #D81B60);
+    padding: 12px 28px;
+    border-radius: 14px;
+    line-height: 1;
+    box-shadow: 0 8px 28px rgba(255, 107, 0, 0.3);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.srh__ipl-badge:hover { transform: scale(1.04); }
+
+.srh__ipl-num {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.srh__ipl-year {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+    .srh__inner {
+        grid-template-columns: 1fr;
+        gap: 44px;
+        padding: 36px 28px;
+    }
+
+    .srh__visual { order: -1; }
+
+    .srh__perks { grid-template-columns: 1fr; }
+}
