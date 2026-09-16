@@ -95,21 +95,32 @@ export default function JobCardGrid({ onJobSelect }) {
             <div className="job-cards-grid">
                 {filteredJobs.map(job => (
                     <div key={job.id} className="job-card glass-card">
-                        <div className="job-card-top">
-                            <div className="job-company-row">
-                                {job.logo && (
-                                    <div className="job-company-logo-wrap">
-                                        <img src={job.logo} alt={job.company} className="job-company-logo-img" />
+                        <div className="job-card-header">
+                            <div className="job-card-top-row">
+                                <div className="job-card-brand-group">
+                                    {job.logo && (
+                                        <div className="job-company-logo-wrap">
+                                            <img src={job.logo} alt={job.company} className="job-company-logo-img" />
+                                        </div>
+                                    )}
+                                    <div className="job-card-brand-info">
+                                        <span className="job-company-name">{job.company}</span>
+                                        <span className="job-category-label">{job.categoryLabel || 'Delivery'}</span>
                                     </div>
-                                )}
-                                <span className="job-company-badge">{job.company}</span>
-                                {job.badge && <span className="job-highlight-badge">{job.badge}</span>}
-                            </div>
-                            <span className="job-type-tag">{job.type}</span>
-                        </div>
+                                </div>
 
-                        <h3 className="job-card-title">{job.title}</h3>
-                        <p className="job-card-location">📍 {job.location}</p>
+                                {job.badge && (
+                                    <span className="job-highlight-badge">{job.badge}</span>
+                                )}
+                            </div>
+
+                            <h3 className="job-card-title">{job.title}</h3>
+                            
+                            <div className="job-card-meta-chips">
+                                <span className="job-meta-chip">📍 {job.location}</span>
+                                <span className="job-meta-chip job-meta-chip--type">⏱️ {job.type}</span>
+                            </div>
+                        </div>
 
                         {/* Payout & Kotak Banner Box */}
                         <div className="job-card-payout-box">
