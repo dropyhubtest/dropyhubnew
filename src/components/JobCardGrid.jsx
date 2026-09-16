@@ -97,6 +97,11 @@ export default function JobCardGrid({ onJobSelect }) {
                     <div key={job.id} className="job-card glass-card">
                         <div className="job-card-top">
                             <div className="job-company-row">
+                                {job.logo && (
+                                    <div className="job-company-logo-wrap">
+                                        <img src={job.logo} alt={job.company} className="job-company-logo-img" />
+                                    </div>
+                                )}
                                 <span className="job-company-badge">{job.company}</span>
                                 {job.badge && <span className="job-highlight-badge">{job.badge}</span>}
                             </div>

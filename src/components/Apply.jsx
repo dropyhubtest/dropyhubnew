@@ -38,8 +38,8 @@ const Apply = () => {
                         <div className="flow-step">
                             <div className="flow-step-num">3</div>
                             <div className="flow-step-info">
-                                <strong>24-Hour Executive Verification & Active Payroll</strong>
-                                <span>Executives review report within 24 hours → Confirmation email sent!</span>
+                                <strong>24-Hour Verification & Payroll Starts</strong>
+                                <span>Verification takes 24 hours → Payroll starts & confirmation email sent!</span>
                             </div>
                         </div>
                     </div>

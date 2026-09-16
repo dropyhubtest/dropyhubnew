@@ -1,4 +1,4 @@
-// Curated Job Listings for DropyHub Company Payroll & Gig Workers
+// Curated Job Listings for DropyHub Company Payroll & Delivery/Logistics Roles
 
 export const GIG_JOBS = [
     {
@@ -31,7 +31,7 @@ export const GIG_JOBS = [
     {
         id: 'pronto-cargo',
         company: 'Pronto',
-        logo: '/logos/delivery.png',
+        logo: '/logos/images.jpeg',
         title: 'Express Parcel & City Delivery Driver',
         category: 'delivery',
         categoryLabel: '2-Wheeler / 3-Wheeler',
@@ -85,7 +85,7 @@ export const GIG_JOBS = [
     {
         id: 'porter-driver',
         company: 'Porter',
-        logo: '/logos/delivery.png',
+        logo: '/logos/images.jpeg',
         title: 'Intra-City 3-Wheeler / Mini-Truck Driver',
         category: 'cargo',
         categoryLabel: 'Cargo & Logistics',
@@ -161,6 +161,33 @@ export const GIG_JOBS = [
             'Bike / Scooter / EV',
             'Driving License',
             'Aadhaar & PAN Card'
+        ]
+    },
+    {
+        id: 'flipkart-minutes',
+        company: 'Flipkart Minutes',
+        logo: '/logos/flipkart_minutes.png',
+        title: 'Hyperlocal Speed Delivery Executive',
+        category: 'delivery',
+        categoryLabel: 'Hyperlocal Delivery',
+        location: 'Bangalore, Hyderabad, Delhi NCR, Mumbai',
+        dailyPayout: '₹1,250 - ₹1,800/day',
+        monthlyEst: '₹33,000 - ₹47,000/mo',
+        openings: 70,
+        type: 'On-Payroll Contract',
+        badge: 'New Launch',
+        payoutFrequency: 'Daily Direct to Kotak',
+        description: 'Deliver orders in 10-15 minutes for Flipkart Minutes hyperlocal network with localized store zones.',
+        perks: [
+            'Automated Kotak 811 Salary Account Transfers',
+            'Peak Hour Multiplier Bonus',
+            'Free Rain Gear & Delivery Bag',
+            'Weekly Performance Rewards'
+        ],
+        requirements: [
+            'Two-Wheeler with DL',
+            'Aadhaar Card',
+            'Smartphone'
         ]
     },
     {

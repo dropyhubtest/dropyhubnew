@@ -131,6 +131,11 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
                         <div className="job-modal-header">
                             <div className="job-modal-top-row">
                                 <div className="job-modal-company-tag">
+                                    {job.logo && (
+                                        <div className="job-company-logo-wrap" style={{ width: '28px', height: '28px', padding: '2px' }}>
+                                            <img src={job.logo} alt={job.company} className="job-company-logo-img" />
+                                        </div>
+                                    )}
                                     <span className="company-name">{job.company}</span>
                                     <span className="job-type-pill">{job.type}</span>
                                     {job.badge && <span className="job-badge-pill">{job.badge}</span>}
@@ -154,7 +159,7 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
                                     <strong className="kotak-headline">Mandatory Zero-Balance Salary Account Step</strong>
                                 </div>
                                 <p className="kotak-explainer">
-                                    Upon clicking <strong>"Apply & Open Kotak Account"</strong>, you'll be redirected to create your free Kotak Salary Account. Verification takes up to <strong>24 hours</strong>. Our onboarding executives will manually review the verification report and approve your company payroll activation within 24 hours.
+                                    Upon clicking <strong>"Apply & Open Kotak Account"</strong>, you'll be redirected to create your free Kotak Salary Account. After creating the bank account, verification takes 24 hours and then your company payroll starts.
                                 </p>
                             </div>
                         </div>
@@ -342,10 +347,10 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
                             </div>
 
                             <div className="timeline-item upcoming">
-                                <div className="timeline-dot">📋</div>
+                                <div className="timeline-dot">⚡</div>
                                 <div className="timeline-text">
-                                    <strong>3. 24-Hour Manual Executive Verification</strong>
-                                    <span>Our executives will verify the report within 24 hours, accept your application, activate company payroll, and send your confirmation email.</span>
+                                    <strong>3. 24-Hour Verification & Payroll Starts</strong>
+                                    <span>After creating your Kotak bank account, verification takes 24 hours. Once verified, your company payroll starts automatically and a confirmation email will be sent to you.</span>
                                 </div>
                             </div>
                         </div>
