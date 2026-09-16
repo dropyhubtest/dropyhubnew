@@ -38,8 +38,8 @@ const Apply = () => {
                         <div className="flow-step">
                             <div className="flow-step-num">3</div>
                             <div className="flow-step-info">
-                                <strong>24-Hour Verification & Active Payroll</strong>
-                                <span>Kotak reports match Sub-ID → Confirmation email sent!</span>
+                                <strong>24-Hour Executive Verification & Active Payroll</strong>
+                                <span>Executives review report within 24 hours → Confirmation email sent!</span>
                             </div>
                         </div>
                     </div>

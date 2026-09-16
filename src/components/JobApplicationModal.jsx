@@ -12,7 +12,6 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [applicantId, setApplicantId] = useState('');
     const [submitError, setSubmitError] = useState('');
-    const [copied, setCopied] = useState(false);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -95,7 +94,6 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
 
         } catch (err) {
             console.error('Lead submission error:', err);
-            // Even if network glitches, we preserve applicant state and allow Kotak opening
             saveApplicantState({
                 applicantId: finalId,
                 job,
@@ -107,14 +105,6 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
             window.open(kotakRedirectUrl, '_blank', 'noopener,noreferrer');
         } finally {
             setIsSubmitting(false);
-        }
-    };
-
-    const handleCopyId = () => {
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(applicantId);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2500);
         }
     };
 
@@ -164,7 +154,7 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
                                     <strong className="kotak-headline">Mandatory Zero-Balance Salary Account Step</strong>
                                 </div>
                                 <p className="kotak-explainer">
-                                    Upon clicking <strong>"Apply & Open Kotak Account"</strong>, you'll be redirected to create your free Kotak Salary Account. Kotak verifies account creation within <strong>24 hours</strong>. Once verified via your unique Sub-ID, your company payroll will be activated & an official confirmation email will be sent!
+                                    Upon clicking <strong>"Apply & Open Kotak Account"</strong>, you'll be redirected to create your free Kotak Salary Account. Verification takes up to <strong>24 hours</strong>. Our onboarding executives will manually review the verification report and approve your company payroll activation within 24 hours.
                                 </p>
                             </div>
                         </div>
@@ -187,7 +177,7 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
                                 </div>
 
                                 <div className="modal-input-field">
-                                    <label>Mobile Number (For Kotak Link) *</label>
+                                    <label>Mobile Number (For Salary Link) *</label>
                                     <input
                                         type="tel"
                                         name="phone"
@@ -297,28 +287,39 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
                                     )}
                                 </button>
                                 <p className="modal-disclaimer-text">
-                                    🔒 100% Free Application • Redirects to Kotak 811 official page with unique ID <code>{applicantId}</code>
+                                    🔒 100% Free Application • Free Zero Balance Digital Account Setup with Kotak 811
                                 </p>
                             </div>
                         </form>
                     </>
                 ) : (
-                    /* Post-Submission 24-Hour Kotak Tracker State */
+                    /* Post-Submission 24-Hour Executive Verification State */
                     <div className="modal-success-state">
                         <div className="success-icon-badge">🎉</div>
-                        <h2 className="success-title">Application Submitted & Kotak Redirect Initiated!</h2>
+                        <h2 className="success-title">Application Submitted Successfully!</h2>
                         <p className="success-sub">
-                            Thank you, <strong>{formData.name}</strong>. Your application for <strong>{job.title} ({job.company})</strong> has been saved.
+                            Thank you, <strong>{formData.name}</strong>. Your application for <strong>{job.title} ({job.company})</strong> has been received by our onboarding desk.
                         </p>
 
-                        {/* Sub-ID Card */}
-                        <div className="sub-id-highlight-box">
-                            <span className="sub-id-label">Your Unique Applicant Tracking Sub-ID:</span>
-                            <div className="sub-id-row">
-                                <strong className="sub-id-text">{applicantId}</strong>
-                                <button type="button" className="copy-sub-id-btn" onClick={handleCopyId}>
-                                    {copied ? '✓ Copied' : 'Copy ID'}
-                                </button>
+                        {/* Candidate Summary Card */}
+                        <div className="applicant-summary-card">
+                            <div className="applicant-summary-grid">
+                                <div>
+                                    <span className="summary-field-lbl">Candidate Name</span>
+                                    <strong>{formData.name}</strong>
+                                </div>
+                                <div>
+                                    <span className="summary-field-lbl">Contact Number</span>
+                                    <strong>+91 {formData.phone}</strong>
+                                </div>
+                                <div>
+                                    <span className="summary-field-lbl">Applied Role</span>
+                                    <strong style={{ color: 'var(--pink-light)' }}>{job.title} ({job.company})</strong>
+                                </div>
+                                <div>
+                                    <span className="summary-field-lbl">Payout Channel</span>
+                                    <strong style={{ color: '#00E676' }}>Kotak 811 Direct Deposit</strong>
+                                </div>
                             </div>
                         </div>
 
@@ -327,24 +328,24 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
                             <div className="timeline-item done">
                                 <div className="timeline-dot">✓</div>
                                 <div className="timeline-text">
-                                    <strong>1. Job Application Recorded</strong>
-                                    <span>Details saved in DropyHub database</span>
+                                    <strong>1. Application Received</strong>
+                                    <span>Your profile details have been registered with DropyHub.</span>
                                 </div>
                             </div>
 
                             <div className="timeline-item active">
                                 <div className="timeline-dot">⏳</div>
                                 <div className="timeline-text">
-                                    <strong>2. Complete Kotak 811 Account Opening</strong>
-                                    <span>Open the Kotak page & complete KYC in 3 mins</span>
+                                    <strong>2. Kotak 811 Account Setup</strong>
+                                    <span>Complete your free zero-balance digital KYC on the opened Kotak page.</span>
                                 </div>
                             </div>
 
                             <div className="timeline-item upcoming">
-                                <div className="timeline-dot">🚀</div>
+                                <div className="timeline-dot">📋</div>
                                 <div className="timeline-text">
-                                    <strong>3. 24-Hour Report Reconciliation & Payroll Active</strong>
-                                    <span>Kotak verifies account creation in 24 hours → Confirmation email sent & company payroll activated!</span>
+                                    <strong>3. 24-Hour Manual Executive Verification</strong>
+                                    <span>Our executives will verify the report within 24 hours, accept your application, activate company payroll, and send your confirmation email.</span>
                                 </div>
                             </div>
                         </div>

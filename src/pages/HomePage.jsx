@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import RollingPayoutTicker from '../components/RollingPayoutTicker';
+import StartaplyBanner from '../components/StartaplyBanner';
 import FAQAccordion from '../components/FAQAccordion';
 import Testimonials from '../components/Testimonials';
 import './HomePage.css';
@@ -431,6 +432,9 @@ const HomePage = () => (
                 </div>
             </div>
         </section>
+
+        {/* Startaply IT & Non-IT Careers Banner */}
+        <StartaplyBanner />
 
         <Testimonials />
 
