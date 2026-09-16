@@ -1,0 +1,23 @@
+[
+  {
+    "applicantId": "DH-PAYROLL-MU3ZD4SS-CF40",
+    "sub_id": "DH-PAYROLL-MU3ZD4SS-CF40",
+    "name": "Venkatesh Rao",
+    "phone": "9988776655",
+    "email": "venkatesh.rao@example.com",
+    "city": "Hyderabad",
+    "area": "Gachibowli",
+    "age": "24",
+    "role": "Quick Commerce Delivery Partner",
+    "preferredCompany": [
+      "Zepto"
+    ],
+    "hasBike": "Yes",
+    "drivingLicense": "Yes",
+    "experience": "Fresher",
+    "kotakStatus": "ACCOUNT_OPENING_PENDING",
+    "kotakTrackingUrl": "https://www.kotak811.bank.in/open-zero-balance-savings-account?utm_source=GoogleSEMiQ&utm_medium=Paid&utm_campaign=iQ-Kotak-BA-Bank-Account-Brand-All-India-Ex-NS-12-25_Non-ZB-Exact&utm_content=kotak+811&gad_source=1&gad_campaignid=23333657968&gbraid=0AAAAACQ2IDkMJ6SxkI2VPJDbrghz2ZqlI&gclid=CjwKCAjw_KjVBhAHEiwAnC0N9NudcOINkX5MU1njBYP4b1hTQqPoL56vGi8XMJDb4sD1PJfN9HOgrBoCprkQAvD_BwE&sub_id=DH-PAYROLL-MU3ZD4SS-CF40&applicant_id=DH-PAYROLL-MU3ZD4SS-CF40&name=Venkatesh+Rao&phone=9988776655&city=Hyderabad",
+    "attribution": {},
+    "createdAt": "2026-09-16T10:51:18.029Z"
+  }
+]
