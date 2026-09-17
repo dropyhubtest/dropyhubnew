@@ -42,6 +42,7 @@ export default async function handler(req, res) {
             if (data.name) urlObj.searchParams.set('name', data.name);
             if (data.phone) urlObj.searchParams.set('phone', data.phone);
             if (data.city) urlObj.searchParams.set('city', data.city);
+            if (data.state) urlObj.searchParams.set('state', data.state);
             kotakTrackingUrl = urlObj.toString();
         } catch (e) {
             kotakTrackingUrl = baseKotakUrl;
@@ -53,6 +54,7 @@ export default async function handler(req, res) {
             name: data.name || '',
             phone: data.phone || '',
             email: data.email || '',
+            state: data.state || '',
             city: data.city || '',
             area: data.area || '',
             age: data.age || '',
@@ -126,7 +128,7 @@ export default async function handler(req, res) {
                                 </tr>
                                 <tr>
                                     <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #666; font-size: 14px;"><strong>Location:</strong></td>
-                                    <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #111; font-size: 14px; font-weight: 600;">${data.area ? `${data.area}, ` : ''}${data.city || 'N/A'}</td>
+                                    <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #111; font-size: 14px; font-weight: 600;">${data.area ? `${data.area}, ` : ''}${data.city ? `${data.city}, ` : ''}${data.state || 'N/A'}</td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 8px 0; border-bottom: 1px solid #eee; color: #666; font-size: 14px;"><strong>Job Applied:</strong></td>

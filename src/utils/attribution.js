@@ -59,6 +59,7 @@ export function buildKotakRedirectUrl(applicantId, details = {}) {
         if (details.name) url.searchParams.set('name', details.name);
         if (details.phone) url.searchParams.set('phone', details.phone);
         if (details.city) url.searchParams.set('city', details.city);
+        if (details.state) url.searchParams.set('state', details.state);
         return url.toString();
     } catch (e) {
         return KOTAK_TARGET_URL;

@@ -17,6 +17,7 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
         name: '',
         phone: '',
         email: '',
+        state: '',
         city: '',
         area: '',
         age: '',
@@ -208,11 +209,23 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
                                 </div>
 
                                 <div className="modal-input-field">
+                                    <label>State *</label>
+                                    <input
+                                        type="text"
+                                        name="state"
+                                        placeholder="E.g. Telangana, Karnataka, Maharashtra"
+                                        value={formData.state}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+
+                                <div className="modal-input-field">
                                     <label>City *</label>
                                     <input
                                         type="text"
                                         name="city"
-                                        placeholder="E.g. Hyderabad, Bangalore"
+                                        placeholder="E.g. Hyderabad, Bangalore, Mumbai"
                                         value={formData.city}
                                         onChange={handleChange}
                                         required
@@ -316,6 +329,10 @@ export default function JobApplicationModal({ job, isOpen, onClose }) {
                                 <div>
                                     <span className="summary-field-lbl">Contact Number</span>
                                     <strong>+91 {formData.phone}</strong>
+                                </div>
+                                <div>
+                                    <span className="summary-field-lbl">Location</span>
+                                    <strong>{formData.area ? `${formData.area}, ` : ''}{formData.city ? `${formData.city}, ` : ''}{formData.state}</strong>
                                 </div>
                                 <div>
                                     <span className="summary-field-lbl">Applied Role</span>
